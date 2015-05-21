@@ -9,8 +9,20 @@ module.exports = {
 
 	play: function (req, res) {
 
+		if (req.param.data) {
 
-		return res.send("The clock is running");
+			GameModel.create('Games', data, function(err, games) {
+				if (err) {
+					console.error(err);
+					throw err;
+				}
+				res.status(200).send({"game": games});
+
+			});
+
+		}
+
+		return res.status(302).send("The clock is running");
 
 	},
 

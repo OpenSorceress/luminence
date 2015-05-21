@@ -34,6 +34,11 @@ module.exports.routes = {
 
   '/': {
     view: 'homepage'
+  },
+
+  '/games': {
+    controller: 'games',
+    action: 'play'
   }
 
   /***************************************************************************
