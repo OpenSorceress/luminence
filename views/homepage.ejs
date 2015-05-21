@@ -1,0 +1,56 @@
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.map"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.pjax/1.9.6/jquery.pjax.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.4.1/jquery.timeago.min.js"></script>
+<!-- Default home page -->
+<link type="text/css" href='http://sailsjs.org/styles/fonts.css' rel='stylesheet'/>
+<div id="container">
+  <div id="game">
+
+
+
+  </div>
+</div>
+<script>
+
+  var box = $('#game');
+
+  var rand = Math.random();
+
+  box.on('click', { }, function(e) {
+
+      var alpha = (parseInt(e.pageX / e.pageY, 10));
+
+
+
+      var rgb = [];
+      for (x=0; x<3; x++) {
+        rgb.push(getRandomInt(0,255));
+      }
+
+    var bkg = '';
+    $(rgb).each(function(i) {
+      bkg += rgb[i].toString();
+      if (i < 2) {
+        bkg += ',';
+      } else bkg = 'rgba('+bkg+',1)';
+    });
+    console.log(bkg);
+
+      $(e.currentTarget).css({'background-color':bkg}).fadeTo(e.pageX, alpha, 'easeInCubic', function(e) {
+
+
+        // backbone transport data back to the server!
+
+      });
+
+  });
+
+  function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+
+</script>
