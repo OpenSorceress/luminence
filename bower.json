@@ -15,9 +15,11 @@
   ],
   "dependencies": {
     "jquery": "~2.1.4",
-    "jqueryui":"latest",
-    "underscore": "latest",
-    "backbone": "latest",
-    "socket.io": "latest"
+    "jqueryui": "latest",
+    "underscore": "~1.8.3",
+    "backbone": "~1.2.0",
+    "socket.io": "latest",
+    "jquery-pjax": "~1.9.6",
+    "backbone-to-sails": "~0.10.0"
   }
 }

@@ -42,6 +42,12 @@ module.exports.routes = {
     view: 'homepage'
   },
 
+  '/games/play':{
+    controller: 'games',
+    action: 'play',
+    view: 'homepage'
+  },
+
   'get /login': 'AuthController.login',
   'get /logout': 'AuthController.logout',
   'get /register': 'AuthController.register',
