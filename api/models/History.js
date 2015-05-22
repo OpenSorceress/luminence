@@ -9,13 +9,21 @@ module.exports = {
 
   identity: 'history',
   connection: 'localDiskDb',
+  autoCreatedAt:true,
+  autoUpdatedAt: true,
 
   attributes: {
 
+    rgb: 'string',
+    alpha: 'string',
+
     game: {
+
       model: 'game'
+
     }
 
   }
+
 };
 

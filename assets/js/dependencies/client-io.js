@@ -3,15 +3,16 @@ var GameModel = Backbone.Model.extend({
 });
 
 var GameCollection = Backbone.Collection.extend({
-	url: '/games',
+	url: '/games/play',
 	model: GameModel
 });
 
+var game = new GameModel();
 var games = new GameCollection();
 games.fetch();
 
-$('#game').on('click', function (e) {
 
+$('#game').on('click', function (e) {
 
 	var rgb = [];
 	var alpha = (parseInt(e.pageX - e.pageY, 10)); // user-generated randomness
@@ -27,10 +28,23 @@ $('#game').on('click', function (e) {
 			data += ',';
 		}
 	});
-	data = 'rgb(' + data + ')';
-	$(e.currentTarget).css({'background-color': data}).fadeTo(e.pageX, alpha / e.pageY * .30 / 2, 'easeInCubic', games.create({game: data}, {wait: true}));
+
+	data = {
+		player: '<%=req.session.user%>' || 0,
+		game: games.fetch({ playerId: '<%=req.session.user%>'}) || 0,
+		histories: {
+			rgb: 'rgb(' + data + ')',
+			alpha: alpha
+		}
+	};
+
+	$(e.currentTarget).css({'background-color': data.rgb}).fadeTo(
+			e.pageX, alpha / e.pageY * .30 / 2,
+			'easeInCubic',
+			games.create('/games/play', {data:data}, {wait:true}) //({ data: data }, {wait:true})
+	);
 
 });
 function getRandomInt(min, max) {
-	return Math.floor(Math.random() * (max - min + 1)) + min;
+	return Math.floor(Math.random() * (max - min + 1)) + min
 }

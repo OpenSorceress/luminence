@@ -13,11 +13,27 @@ module.exports = {
   autoUpdatedAt: true,
 
   attributes: {
-    player: {
-      model: 'player'
+
+    id: {
+      type: 'integer',
+      unique: true,
+      primaryKey: true
     },
-    history: {
-      model: 'history'
+
+    status: {
+      type: 'string',
+      enum: ['play', 'edit' ]
+    },
+
+    player: {
+
+      model: 'player'
+
+    },
+
+    histories: {
+
+      collection: 'history'
     }
 
   }

@@ -14,6 +14,10 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "~2.1.4"
+    "jquery": "~2.1.4",
+    "jqueryui":"latest",
+    "underscore": "latest",
+    "backbone": "latest",
+    "socket.io": "latest"
   }
 }

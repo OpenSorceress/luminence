@@ -7,7 +7,14 @@
 
 module.exports = {
 
+	retmod: function(req, res) {
+
+	},
+
+	relive: function(req, res) {
+
+	}
 
 
-};
+}
 
